@@ -30,6 +30,11 @@ public class ProductServiceImplement implements ProductService {
     }
 
     @Override
+    public List<Product> getProductOutOfStock() {
+        return productRepository.checkOutOfStock();
+    }
+
+    @Override
     public Product getProductById(Long id) {
         // Optional มีโอกาศที่ค่าจะออกมา null
         Optional<Product> product = productRepository.findById(id);
@@ -39,7 +44,6 @@ public class ProductServiceImplement implements ProductService {
         } else {
             throw new ProductNotFoundException(id);
         }
-
     }
 
     @Override

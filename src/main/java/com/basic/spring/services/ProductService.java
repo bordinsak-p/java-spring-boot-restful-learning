@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface ProductService {
     List<Product> getAllProduct();
+    List<Product> getProductOutOfStock();
     Product getProductById(Long id);
     Product getProductByName(String name);
     Product addProduct(ProductRequest productRequest);

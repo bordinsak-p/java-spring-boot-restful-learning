@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -36,6 +35,11 @@ public class ProductController {
     @GetMapping("/{id}")
     public Product getProductById(@PathVariable long id) {
         return productService.getProductById(id);
+    }
+
+    @GetMapping("/out-of-stock")
+    public List<Product> getProductCheckOutOfStock() {
+        return productService.getProductOutOfStock();
     }
 
     @PostMapping
